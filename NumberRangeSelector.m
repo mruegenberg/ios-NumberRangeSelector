@@ -7,15 +7,12 @@
 //
 
 #import "NumberRangeSelector.h"
-#import "Settings.h"
 #import <UIColor+HelperAdditions.h>
 #import <NSObject+ObserveActions.h>
 #import "DLSeamlessTiledLayer.h"
 
 @interface TriangleView : UIView
-
 @property (strong) UIColor *color;
-
 @end
 
 @implementation TriangleView
@@ -207,23 +204,12 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if((self = [super initWithCoder:aDecoder])) {
         self.scaleView = [[DLEnterWeightScaleView alloc] initWithFrame:CGRectZero];
-        self.scaleView.fullStepSize = 100;
-        self.scaleView.stepsStart = 0;
-        self.scaleView.stepsEnd = maxWeightForUnit([Settings sharedSettings].units);
-        self.scaleView.stepSize = 1; 
-        [self.scaleView sizeToFit];
-        
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        self.scrollView.contentSize = self.scaleView.frame.size;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
         self.scrollView.delegate = self;
         self.scrollView.backgroundColor = [UIColor clearColor];
-        {
-            CGFloat offset =  [self.scaleView offsetForPosition:0.0] - self.scrollView.frame.size.width / 2;
-            self.scrollView.contentOffset = CGPointMake(offset, 0);
-        }
         
         self.backgroundColor = [UIColor clearColor];
         [self.scrollView addSubview:self.scaleView];
@@ -235,8 +221,19 @@
     return self;
 }
 
+- (void)setStepsStart:(NSInteger)stepsStart { self.scaleView.stepsStart = stepsStart; }
+- (void)setStepsEnd:(NSInteger)stepsEnd     { self.scaleView.stepsEnd = stepsEnd; }
+- (void)setStepSize:(NSUInteger)stepSize    { self.scaleView.stepSize = stepSize; }
+- (void)setFullStepSize:(CGFloat)fullStepSize { self.scaleView.fullStepSize = fullStepSize; [self.scaleView sizeToFit]; }
+- (NSInteger)stepsStart { return self.scaleView.stepsStart; }
+- (NSInteger)stepsEnd   { return self.scaleView.stepsEnd; }
+- (NSUInteger)stepSize  { return self.scaleView.stepSize; }
+- (CGFloat)fullStepSize { return self.scaleView.fullStepSize; }
+
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self.scaleView sizeToFit];
+    self.scrollView.contentSize = self.scaleView.frame.size;
     self.scrollView.frame = self.bounds;
     self.triView.frame = CGRectMake(self.bounds.origin.x + self.bounds.size.width / 2 - 10,
                                     self.scaleView.frame.origin.y + self.scaleView.frame.size.height - 10,

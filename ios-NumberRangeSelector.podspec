@@ -26,5 +26,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'CoreGraphics'
 
   s.requires_arc = true
+  
+  s.dependency 'objc-utils', '~> 0.4.5'
 
 end
