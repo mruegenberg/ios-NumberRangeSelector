@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source       = { :git => "https://github.com/mruegenberg/ios-NumberRangeSelector.git", :commit => "027a5e07f7286c2a3a3d3a056466d15c1b8ee915" } # :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/mruegenberg/ios-NumberRangeSelector.git", :tag => "0.1.0" }
 
   s.source_files  = '*.{h,m}'
 
