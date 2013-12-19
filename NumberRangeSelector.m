@@ -7,8 +7,8 @@
 //
 
 #import "NumberRangeSelector.h"
-#import <UIColor+HelperAdditions.h>
-#import <NSObject+ObserveActions.h>
+#import "UIColor+HelperAdditions.h"
+#import "NSObject+ObserveActions.h"
 #import "DLSeamlessTiledLayer.h"
 
 @interface TriangleView : UIView

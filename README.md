@@ -11,7 +11,7 @@ Install the *ios-NumberRangeSelector* Cocoapod.
 Alternatively, copy the `.h` and `.m`  files into your project, and either install the [objc-utils](https://github.com/mruegenberg/objc-utils) Cocoapod or copy the `UIColor+HelperAdditions` and `NSObject+ObserveActions` categories from there into your project. 
 
 ## License
-The library is under the MIT license.
+MIT.
 
 ## Screenshot
 ![Screenshot 1](doc/screenshot1.png)
