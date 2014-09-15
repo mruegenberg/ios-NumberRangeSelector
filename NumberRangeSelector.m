@@ -137,7 +137,7 @@
                                             NSForegroundColorAttributeName:highlightColor};
     NSAssert(self.stepsStart <= self.stepsEnd, @"Negative number of steps!"); // exchange the two?
     for(NSInteger i = self.stepsStart; i < self.stepsEnd; i += self.stepSize) {
-        NSString *stepLabel = [NSString stringWithFormat:@"%d", i];
+        NSString *stepLabel = [NSString stringWithFormat:@"%ld", (long)i];
         CGSize s = [stepLabel sizeWithAttributes:stepLabelAttrs];
         if(xStart + s.width < rect.origin.x) {
             ;
