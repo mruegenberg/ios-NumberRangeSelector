@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ios-NumberRangeSelector"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Granular selection from a numeric range for iOS."
 
   s.description  = <<-DESC
@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
 
   s.author       = { "Marcel Ruegenberg" => "gh@dustlab.com" }
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '5.1'
 
-  s.source       = { :git => "https://github.com/mruegenberg/ios-NumberRangeSelector.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/mruegenberg/ios-NumberRangeSelector.git", :tag => s.version }
 
   s.source_files  = '*.{h,m}'
 
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   
-  s.dependency 'objc-utils', '>= 0.3.3'
+  s.dependency 'objc-utils', '>= 0.6.0'
+  s.dependency 'uikit-utils', '~> 0.5.1'
 
 end

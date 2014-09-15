@@ -7,7 +7,7 @@
 //
 
 #import "NumberRangeSelector.h"
-#import "UIColor+HelperAdditions.h"
+#import "UIColor+DLHelperAdditions.h"
 #import "NSObject+ObserveActions.h"
 #import "DLSeamlessTiledLayer.h"
 
